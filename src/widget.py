@@ -1,9 +1,9 @@
-def mask_account_card(type_number_card):
+def mask_account_card(type_number_card) -> str:
     """
     Функция маскирует номер карты или номер счета
 
     :param type_number_card:
-        type_numder_card (str): Строка, содержащая тип и номер карты или счета
+        type_number_card (str): Строка, содержащая тип и номер карты или счета
 
     :return:
         str: Замаскированный номер карты или счета
@@ -29,7 +29,7 @@ def mask_account_card(type_number_card):
 
         return masked_number
 
-def get_date(data):
+def get_date(data) -> str:
     """
     Функция принимает дату в формате "2024-03-11T02:26:18.671407"
     и возвращает в формате "ДД.ММ.ГГГГ" ("11.03.2024")
