@@ -1,4 +1,4 @@
-def filter_by_state(list_dict, state="EXECUTED"):
+def filter_by_state(list_dict, state="EXECUTED") -> list:
     """
     Функция, возвращающая новый список словарей, содержащих только те словари,
     у которых ключ соответствует state
@@ -17,7 +17,7 @@ def filter_by_state(list_dict, state="EXECUTED"):
     return new_list
 
 
-def sor_by_date(list_dict, reverse: bool = True):
+def sort_by_date(list_dict, reverse: bool = True) -> list:
     """
     Функция, возвращающая новый список, отсортированный по дате
     :param list_dict:
