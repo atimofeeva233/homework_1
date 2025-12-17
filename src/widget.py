@@ -29,6 +29,7 @@ def mask_account_card(type_number_card) -> str:
 
         return masked_number
 
+
 def get_date(data) -> str:
     """
     Функция принимает дату в формате "2024-03-11T02:26:18.671407"

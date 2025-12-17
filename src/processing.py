@@ -7,7 +7,7 @@ def filter_by_state(list_dict, state="EXECUTED") -> list:
     :param state:
         state (str): Ключ, по которому будем выбирать
     :return:
-        Список словарей: Словарь, отфильтрованный по ключу state
+        list: Список словарей: Словарь, отфильтрованный по ключу state
     """
     new_list = []
     for dicts in list_dict:
@@ -25,6 +25,6 @@ def sort_by_date(list_dict, reverse: bool = True) -> list:
     :param reverse:
         reverse (bool): Значение для сортировки (по умол. - убывающее)
     :return:
-        Новый, отсортированный по дате список
+        list: Новый, отсортированный по дате список
     """
     return sorted(list_dict, key=lambda x: x["date"], reverse=reverse)
