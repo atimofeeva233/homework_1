@@ -1,4 +1,4 @@
-def filter_by_state(list_dict, state="EXECUTED") -> list:
+def filter_by_state(list_dict, state="EXECUTED"):
     """
     Функция, возвращающая новый список словарей, содержащих только те словари,
     у которых ключ соответствует state
@@ -7,19 +7,17 @@ def filter_by_state(list_dict, state="EXECUTED") -> list:
     :param state:
         state (str): Ключ, по которому будем выбирать
     :return:
-        new_list (list): Список словарей: Словарь, отфильтрованный по ключу state
+        Список словарей: Словарь, отфильтрованный по ключу state
     """
     new_list = []
     for dicts in list_dict:
         if dicts["state"] == state:
             new_list.append(dicts)
-    if new_list == []:
-        raise TypeError('Нет данных')
 
     return new_list
 
 
-def sort_by_date(list_dict, reverse: bool = True) -> list:
+def sor_by_date(list_dict, reverse: bool = True):
     """
     Функция, возвращающая новый список, отсортированный по дате
     :param list_dict:
@@ -27,6 +25,6 @@ def sort_by_date(list_dict, reverse: bool = True) -> list:
     :param reverse:
         reverse (bool): Значение для сортировки (по умол. - убывающее)
     :return:
-        list_dict (list): Новый, отсортированный по дате список
+        Новый, отсортированный по дате список
     """
     return sorted(list_dict, key=lambda x: x["date"], reverse=reverse)
