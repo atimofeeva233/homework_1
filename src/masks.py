@@ -1,12 +1,15 @@
 def get_mask_card_number(card_number: str) -> str:
     """
-    Функция маскирует номер карты в формате ХХХХ ХХ** **** ХХХХ
+     Маскирует номер карты в формате XXXX XX** **** XXXX.
 
     Args:
-        card_number (str): Номер карты (16 цифр)
+        card_number: Номер карты (16 цифр), может содержать пробелы
 
-    :return:
-        str: Замаскированный номер карты
+    Returns:
+        str: Замаскированный номер карты в формате XXXX XX** **** XXXX
+
+    Raises:
+        ValueError: Если номер карты содержит не 16 цифр
     """
 
     clean_number = "".join(filter(str.isdigit, card_number))
@@ -21,13 +24,16 @@ def get_mask_card_number(card_number: str) -> str:
 
 def get_mask_account(number_account: str) -> str:
     """
-    Функция принимает номер счета и возвращает его маску в формате **XXXX
+    Маскирует номер счета в формате **XXXX.
 
     Args:
-        number_account (str): Номер счета  (20 цифр)
+        number_account: Номер счета (20 цифр), может содержать пробелы
 
-    :return:
-        str: Замаскированный номер счета
+    Returns:
+        str: Замаскированный номер счета в формате **XXXX
+
+    Raises:
+        ValueError: Если номер счета содержит меньше 4 цифр
     """
 
     clean_number = "".join(filter(str.isdigit, number_account))
