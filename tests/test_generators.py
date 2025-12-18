@@ -308,3 +308,29 @@ def test_card_number_generator_parametrized(start, end, expected_first, expected
     assert len(result) == expected_count
     assert result[0] == expected_first
     assert result[-1] == expected_last
+
+
+def test_card_number_generator_basic():
+    # Проверяем первые 5 номеров
+    result = list(card_number_generator(1, 5))
+
+    expected = [
+        "0000 0000 0000 0001",
+        "0000 0000 0000 0002",
+        "0000 0000 0000 0003",
+        "0000 0000 0000 0004",
+        "0000 0000 0000 0005"
+    ]
+
+    assert result == expected
+
+
+def test_card_number_generator_range():
+    # Тестируем диапазон из 10 номеров
+    start = 100
+    end = 109
+    result = list(card_number_generator(start, end))
+
+    assert len(result) == 10
+    assert result[0] == "0000 0000 0000 0100"
+    assert result[-1] == "0000 0000 0000 0109"

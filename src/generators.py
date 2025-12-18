@@ -1,4 +1,4 @@
-def filter_by_currency(transactions: list[dict], currency: str) -> iter[dict]:
+def filter_by_currency(transactions: list[dict], currency: str) -> dict:
     """
     Фильтрует транзакции по валюте и возвращает итератор.
 
