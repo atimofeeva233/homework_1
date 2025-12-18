@@ -29,6 +29,7 @@ def mask_account_card(type_number_card) -> str:
 
         return masked_number
 
+
 def get_date(data) -> str:
     """
     Функция принимает дату в формате "2024-03-11T02:26:18.671407"
@@ -40,6 +41,8 @@ def get_date(data) -> str:
     :return:
         str: Формат даты "ДД.ММ.ГГГГ" ("11.03.2024")
     """
-    number = "".join(filter(str.isdigit, data[:10]))
-    mask_data = f'{number[-2:]}.{number[-4: -2]}.{number[:4]}'
-    return mask_data
+    if data != '':
+        number = "".join(filter(str.isdigit, data[:10]))
+        mask_data = f'{number[-2:]}.{number[-4: -2]}.{number[:4]}'
+        return mask_data
+    return 0
