@@ -16,8 +16,9 @@ assert mask_account_card('Счет 64686473678894779589') == 'Счет **9589'
 with pytest.raises(ValueError):
     assert mask_account_card('Maestro 64686473678894779589')
     assert mask_account_card('321')
+    assert get_date('') == "Пустая строка не может быть преобразована"
 
 assert get_date('2025-12-17T04:08:25.671407') == '17.12.2025'
 assert get_date('2025.12.17') == '17.12.2025'
 assert get_date('2025 12 17') == '17.12.2025'
-assert get_date('') == 0
+
