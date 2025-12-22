@@ -6,6 +6,8 @@
 2. **Фильтрация**: Фильтрация транзакций по валюте
 3. **Сортировка**: Сортировка транзакций по дате
 4. **Генераторы**: Генерация описаний транзакций и номеров карт
+5. **Декораторы**: Автоматическое логирование и мониторинг функций
+6. **Обработка ошибок**: Надежная обработка исключительных ситуаций
 ## Установка:
 1. Клонируйте репозиторий:
 ```
@@ -50,6 +52,24 @@ descriptions = list(transaction_descriptions(transactions))
 
 # Генерация номеров карт
 card_numbers = list(card_number_generator(1, 10))
+
+# Декораторы для логирования
+from src.decorators import log, timer, retry
+
+# Логирование в консоль
+@log()
+def process_payment(amount, currency):
+    """Обработка платежа"""
+    return f"Processed {amount} {currency}"
+
+# Логирование в файл
+@log(filename="payments.log")
+@retry(max_attempts=3)
+def risky_operation(data):
+    """Операция с повторными попытками"""
+    if not validate(data):
+        raise ValueError("Invalid data")
+    return process(data)
 ```
 ## Тестирование:
 ### Запуск тестов:
@@ -86,6 +106,12 @@ pytest --cov=src tests/
 Тестирование генератора card_number_generator\
 Проверка поведения итераторов\
 Тесты граничных значений
+
+#### Тесты для декораторов (tests/test_decorators.py)
+Тестирование декоратора log
+Проверка вывода в консоль и файл
+Тесты обработки ошибок
+Проверка формата логов
 
 ## Покрытие тестами:
 

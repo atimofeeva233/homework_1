@@ -1,4 +1,4 @@
-def filter_by_currency(transactions: list[dict], currency: str) -> iter[dict]:
+def filter_by_currency(transactions: list[dict], currency: str) -> dict:
     """
     Фильтрует транзакции по валюте и возвращает итератор.
 
@@ -7,7 +7,7 @@ def filter_by_currency(transactions: list[dict], currency: str) -> iter[dict]:
         currency: Код валюты для фильтрации (например, 'USD', 'RUB')
 
     Yields:
-        Словари транзакций, где валюта операции соответствует заданной
+        Dict: Словари транзакций, где валюта операции соответствует заданной
     """
     for transaction in transactions:
         if transactions == []:
@@ -30,7 +30,7 @@ def transaction_descriptions(transactions: list[dict]) -> str:
         transactions: Список словарей с транзакциями
 
     Yields:
-        Описание транзакции (строка) или None, если описание отсутствует
+        Optional[str]: Описание транзакции или None, если описание отсутствует
     """
     for transaction in transactions:
         # Извлекаем описание, если оно есть
@@ -47,7 +47,7 @@ def card_number_generator(start: int = 1, end: int = 9999999999999999):
             end: Конечный номер карты (от start до 9999999999999999)
 
         Yields:
-            Номер карты в формате XXXX XXXX XXXX XXXX
+            str: Номер карты в формате XXXX XXXX XXXX XXXX
 
         Raises:
             ValueError: Если параметры выходят за допустимые пределы
