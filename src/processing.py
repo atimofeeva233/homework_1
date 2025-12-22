@@ -1,4 +1,4 @@
-def filter_by_state(list_dict, state="EXECUTED") -> list:
+def filter_by_state(list_dict: list[dict], state="EXECUTED") -> list:
     """
     Фильтрует список транзакций по состоянию.
 
@@ -34,7 +34,7 @@ def filter_by_state(list_dict, state="EXECUTED") -> list:
     return new_list
 
 
-def sort_by_date(list_dict, reverse: bool = True) -> list:
+def sort_by_date(list_dict: list[dict], reverse: bool = True) -> list:
     """
     Сортирует список транзакций по дате.
 

@@ -1,4 +1,4 @@
-def mask_account_card(type_number_card) -> str:
+def mask_account_card(type_number_card: str) -> str:
     """
     Маскирует номер карты или номер счета в зависимости от типа.
 
@@ -48,7 +48,7 @@ def mask_account_card(type_number_card) -> str:
         return masked_number
 
 
-def get_date(data) -> str:
+def get_date(data: str) -> str:
     """
      Преобразует дату из формата ISO в формат ДД.ММ.ГГГГ.
 
