@@ -1,4 +1,9 @@
-def filter_by_state(list_dict: list[dict], state="EXECUTED") -> list:
+from typing import Any, Dict, List, Literal
+
+
+def filter_by_state(list_dict: List[Dict[str, Any]],
+    state: Literal["EXECUTED", "CANCELED", "PENDING", "FAILED"] = "EXECUTED"
+) -> List[Dict[str, Any]]:
     """
     Фильтрует список транзакций по состоянию.
 
