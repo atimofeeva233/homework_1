@@ -8,6 +8,7 @@
 4. **Генераторы**: Генерация описаний транзакций и номеров карт
 5. **Декораторы**: Автоматическое логирование и мониторинг функций
 6. **Обработка ошибок**: Надежная обработка исключительных ситуаций
+7. **Чтение данных из разных форматов**: Поддержка CSV и Excel файлов с помощью pandas
 ## Установка:
 1. Клонируйте репозиторий:
 ```
@@ -70,6 +71,20 @@ def risky_operation(data):
     if not validate(data):
         raise ValueError("Invalid data")
     return process(data)
+
+#### Чтение данных из файлов:
+```python
+from src.file_readers import read_csv_transactions, read_excel_transactions
+
+# Чтение транзакций из CSV файла
+csv_transactions = read_csv_transactions("data/transactions.csv")
+
+# Чтение транзакций из Excel файла
+excel_transactions = read_excel_transactions("data/transactions_excel.xlsx")
+
+# Обе функции возвращают список словарей с транзакциями
+for transaction in csv_transactions:
+    print(f"{transaction['date']}: {transaction['amount']} {transaction['currency']}")
 ```
 ## Тестирование:
 ### Запуск тестов:
@@ -112,6 +127,14 @@ pytest --cov=src tests/
 Проверка вывода в консоль и файл
 Тесты обработки ошибок
 Проверка формата логов
+
+#### Тесты для чтения файлов (tests/test_file_readers.py):
+Тестирование функции read_csv_transactions\
+Тестирование функции read_excel_transactions\
+Проверка обработки пустых файлов\
+Тестирование обработки ошибок при отсутствии файла\
+Проверка структуры возвращаемых данных\
+Использование Mock и patch для изоляции тестов
 
 ## Покрытие тестами:
 
